@@ -3,6 +3,7 @@ import Hero from "./components/Hero.jsx";
 import JobCategories from "./components/JobCategories.jsx";
 import HowItWorks from "./components/HowItWorks.jsx";
 import ForEmployers from "./components/ForEmployers.jsx";
+import ManpowerRequest from "./components/ManpowerRequest.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
 import Industries from "./components/Industries.jsx";
 import Contact from "./components/Contact.jsx";
@@ -19,6 +20,7 @@ export default function App() {
         <JobCategories />
         <HowItWorks />
         <ForEmployers />
+        <ManpowerRequest />
         <WhyChooseUs />
         <Industries />
         <Contact />

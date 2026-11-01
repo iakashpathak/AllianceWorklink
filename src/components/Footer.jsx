@@ -51,6 +51,7 @@ export default function Footer() {
             <ul>
               <li><a href="#how-it-works">How It Works</a></li>
               <li><a href="#employers">For Employers</a></li>
+              <li><a href="#manpower">Request Manpower</a></li>
               <li><a href="#why-us">Why Us</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
