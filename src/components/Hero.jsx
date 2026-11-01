@@ -26,15 +26,15 @@ export default function Hero() {
       <div className="container">
         <div className="hero__inner">
           <div>
-            <span className="hero__eyebrow">Helpers · Operators · Technicians · Desk Staff</span>
+            <span className="hero__eyebrow">Free to apply · Verified employers</span>
             <h1>
               Every job,<br />
               <span className="line2">one link.</span>
             </h1>
             <p className="hero__sub">
-              {siteConfig.companyName} connects job seekers with verified employers
-              across manufacturing, warehousing, and office roles — free to apply,
-              usually placed within days.
+              {siteConfig.companyName} connects job seekers with verified roles
+              and helps businesses hire dependable staff across manufacturing,
+              warehousing, and office teams. Applying is free.
             </p>
             <div className="hero__cta">
               <a href="#jobs" className="btn btn-primary">Find a Job</a>
