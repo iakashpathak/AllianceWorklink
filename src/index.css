@@ -28,9 +28,14 @@
   --shadow-card: 0 1px 2px rgba(26, 33, 41, 0.06), 0 8px 24px rgba(26, 33, 41, 0.06);
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Prevent any element from causing horizontal scroll on mobile */
+  overflow-x: hidden;
+}
+body { overflow-x: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -262,6 +267,24 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 900px) {
   .nav, .header__phone-desktop { display: none; }
   .menu-toggle { display: inline-flex; }
+}
+
+/* Mobile header tightening */
+@media (max-width: 480px) {
+  .header__bar {
+    padding: 12px 16px;
+  }
+  .brand {
+    font-size: 18px;
+    gap: 7px;
+  }
+  .brand__mark {
+    width: 28px;
+    height: 28px;
+  }
+  /* Hide the "Call Now" button on very small screens — hamburger + brand is enough */
+  .header__actions .btn { display: none; }
+  .menu-toggle svg { width: 22px; height: 22px; }
 }
 
 /* ─────────────────────────────────────────────
@@ -912,8 +935,8 @@ button { font-family: inherit; cursor: pointer; }
 ───────────────────────────────────────────── */
 .whatsapp-float {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 20px;
+  right: 16px;
   z-index: 200;
   display: flex;
   align-items: center;
@@ -926,9 +949,11 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 700;
   font-size: 14.5px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  /* Never let it bleed outside the viewport */
+  max-width: calc(100vw - 32px);
 }
 .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.3); }
-.whatsapp-float svg { width: 24px; height: 24px; }
+.whatsapp-float svg { width: 24px; height: 24px; flex-shrink: 0; }
 .whatsapp-float .pulse {
   position: absolute;
   inset: 0;
@@ -941,9 +966,25 @@ button { font-family: inherit; cursor: pointer; }
   0% { opacity: 0.55; transform: scale(1); }
   100% { opacity: 0; transform: scale(1.4); }
 }
+
+/* Tablet — keep label but reduce padding slightly */
+@media (max-width: 768px) {
+  .whatsapp-float { padding: 13px 18px 13px 13px; font-size: 13.5px; }
+}
+
+/* Phone — icon-only circle, fixed to bottom-right corner safely */
 @media (max-width: 560px) {
   .whatsapp-float span.label { display: none; }
-  .whatsapp-float { padding: 14px; }
+  .whatsapp-float {
+    bottom: 16px;
+    right: 16px;
+    padding: 14px;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+  }
+  .whatsapp-float svg { width: 22px; height: 22px; }
 }
 
 /* ─────────────────────────────────────────────
