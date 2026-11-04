@@ -530,11 +530,6 @@ button { font-family: inherit; cursor: pointer; }
   box-shadow: 0 4px 4px rgba(26,33,41,0.05), 0 20px 36px rgba(26,33,41,0.1);
   border-color: var(--color-accent);
 }
-.cat-card__icon {
-  font-size: 32px;
-  line-height: 1;
-  margin-bottom: 14px;
-}
 .cat-card h3 {
   font-size: 21px;
   text-transform: uppercase;
@@ -852,8 +847,9 @@ button { font-family: inherit; cursor: pointer; }
   gap: 14px;
 }
 .mpx__why-icon {
-  font-size: 22px;
-  line-height: 1;
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -909,12 +905,13 @@ button { font-family: inherit; cursor: pointer; }
   gap: 10px;
 }
 .mpx__checklist li::before {
-  content: "✓";
-  color: var(--color-accent);
-  font-weight: 700;
-  font-size: 14px;
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
   flex-shrink: 0;
-  margin-top: 1px;
+  margin: 7px 3px 0 3px;
 }
 
 /* Form card */
@@ -953,7 +950,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 20px;
   border-radius: var(--radius-sm);
 }
-.mpx__success-icon { font-size: 28px; flex-shrink: 0; }
+.mpx__success-icon { color: #198754; flex-shrink: 0; }
 .mpx__success strong { font-size: 17px; font-family: var(--font-display); text-transform: uppercase; }
 .mpx__success p { margin-top: 6px; font-size: 14px; color: var(--color-ink-soft); }
 

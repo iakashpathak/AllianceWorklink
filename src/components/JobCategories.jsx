@@ -24,7 +24,6 @@ export default function JobCategories() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="cat-card__icon">{cat.icon}</span>
               <h3>{cat.title}</h3>
               <p className="cat-card__desc">{cat.desc}</p>
               <span className="cat-card__highlight">{cat.highlight}</span>

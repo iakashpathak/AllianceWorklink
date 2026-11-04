@@ -19,7 +19,9 @@ export default function App() {
         <div className="hazard-strip" aria-hidden="true" />
         <JobCategories />
         <HowItWorks />
+        <div className="hazard-strip" aria-hidden="true" />
         <ForEmployers />
+        <div className="hazard-strip" aria-hidden="true" />
         <ManpowerRequest />
         <WhyChooseUs />
         <Industries />

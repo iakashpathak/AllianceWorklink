@@ -1,36 +1,30 @@
 export const placementCategories = [
   {
-    icon: "⚙️",
     title: "Factory & Production",
     desc: "Helpers, line operators, machine attendants and production associates for manufacturing units of all scales.",
     highlight: "Blue-collar • Daily / Monthly wage",
   },
   {
-    icon: "🔧",
     title: "Skilled Trades",
     desc: "ITI-certified electricians, welders, fitters, plumbers and mechanics for maintenance and assembly work.",
     highlight: "ITI / Diploma • High demand",
   },
   {
-    icon: "🏭",
     title: "Machine Operation",
     desc: "CNC operators, packaging-line staff, forklift drivers and press-machine operators for processing plants.",
     highlight: "Certificate preferred • All shifts",
   },
   {
-    icon: "📦",
     title: "Warehouse & Logistics",
     desc: "Pickers, packers, dispatch clerks, inventory controllers and loading staff for warehouses and e-commerce hubs.",
     highlight: "Day & night shifts available",
   },
   {
-    icon: "🖥️",
     title: "Office & Back-Office",
     desc: "Data entry, billing, accounts support, receptionist and customer service roles for corporate offices.",
     highlight: "Fixed hours • Weekly off",
   },
   {
-    icon: "👷",
     title: "Supervisory & Management",
     desc: "Shift supervisors, floor managers, team leads and site coordinators to head production and field teams.",
     highlight: "2+ yrs experience • Leadership roles",

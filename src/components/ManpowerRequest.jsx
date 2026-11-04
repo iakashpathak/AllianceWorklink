@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { whatsappLink } from "../data/siteConfig.js";
+import Icon from "./Icon.jsx";
 
 const ROLE_OPTIONS = [
   "Helper / General Labour",
@@ -31,10 +32,10 @@ const TYPE_OPTIONS = [
 ];
 
 const WHY = [
-  { icon: "⚡", title: "Fast Deployment", desc: "First batch of candidates shared within 24–48 hrs of your request." },
-  { icon: "✅", title: "Pre-Verified Profiles", desc: "ID, address & reference checks done before anyone reaches your floor." },
-  { icon: "🔄", title: "Replacement Guarantee", desc: "Free replacement within the joining period if a candidate doesn't work out." },
-  { icon: "📞", title: "Single Point of Contact", desc: "One dedicated account manager — no call centres, no runaround." },
+  { icon: "fast", title: "Fast Deployment", desc: "First batch of candidates shared within 24–48 hrs of your request." },
+  { icon: "verified", title: "Pre-Verified Profiles", desc: "ID, address & reference checks done before anyone reaches your floor." },
+  { icon: "replacement", title: "Replacement Guarantee", desc: "Free replacement within the joining period if a candidate doesn't work out." },
+  { icon: "phone", title: "Single Point of Contact", desc: "One dedicated account manager — no call centres, no runaround." },
 ];
 
 export default function ManpowerRequest() {
@@ -90,7 +91,9 @@ export default function ManpowerRequest() {
         <div className="mpx__why">
           {WHY.map((w) => (
             <div className="mpx__why-item" key={w.title}>
-              <span className="mpx__why-icon">{w.icon}</span>
+              <span className="mpx__why-icon">
+                <Icon name={w.icon} />
+              </span>
               <div>
                 <strong>{w.title}</strong>
                 <p>{w.desc}</p>
@@ -118,7 +121,7 @@ export default function ManpowerRequest() {
           <div className="mpx__form-wrap">
             {submitted ? (
               <div className="form-success mpx__success">
-                <span className="mpx__success-icon">✅</span>
+                <Icon name="verified" size={28} className="mpx__success-icon" />
                 <div>
                   <strong>Request sent!</strong>
                   <p>
@@ -243,4 +246,3 @@ export default function ManpowerRequest() {
     </section>
   );
 }
-
