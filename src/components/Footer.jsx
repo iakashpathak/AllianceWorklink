@@ -1,4 +1,4 @@
-import { siteConfig } from "../data/siteConfig.js";
+import { emailLink, siteConfig } from "../data/siteConfig.js";
 import { placementCategories } from "../data/content.js";
 
 export default function Footer() {
@@ -50,7 +50,6 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#employers">For Employers</a></li>
               <li><a href="#manpower">Request Manpower</a></li>
               <li><a href="#why-us">Why Us</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -61,7 +60,7 @@ export default function Footer() {
             <h4>Contact</h4>
             <ul>
               <li><a href={`tel:${siteConfig.phoneLink}`}>{siteConfig.phoneDisplay}</a></li>
-              <li><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
+              <li><a href={emailLink()} target="_blank" rel="noopener noreferrer">{siteConfig.email}</a></li>
               <li>{siteConfig.address.line1}, {siteConfig.address.line2}</li>
             </ul>
           </div>

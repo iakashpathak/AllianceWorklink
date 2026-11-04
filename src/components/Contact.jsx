@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { siteConfig, whatsappLink } from "../data/siteConfig.js";
+import { emailLink, siteConfig, whatsappLink } from "../data/siteConfig.js";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -12,9 +12,15 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Sends the enquiry straight to WhatsApp with the form details pre-filled.
-    // Swap this for a POST to your backend / form service if you'd rather collect leads by email.
     const msg = `New enquiry from the website:\n\nName: ${form.name}\nPhone: ${form.phone}\nEnquiry type: ${form.type}\nMessage: ${form.message || "—"}`;
+
+    if (e.nativeEvent.submitter?.value === "email") {
+      const subject = `Website enquiry from ${form.name}`;
+      const body = `Name: ${form.name}\nPhone: ${form.phone}\nEnquiry type: ${form.type}\nMessage: ${form.message || "—"}`;
+      window.open(emailLink(subject, body), "_blank", "noopener,noreferrer");
+      return;
+    }
+
     window.open(whatsappLink(msg), "_blank", "noopener,noreferrer");
     setSubmitted(true);
   }
@@ -25,12 +31,19 @@ export default function Contact() {
         <div className="section-head">
           <span className="eyebrow">Get In Touch</span>
           <h2>Talk to us today</h2>
-          <p>Call, WhatsApp, or send an enquiry — our team responds the same day.</p>
+          <p>
+            Whether you are looking for work or hiring a team, we are ready to
+            help. Choose the contact method that works best for you.
+          </p>
         </div>
 
         <div className="contact__inner">
-          <div className="contact-card">
-            <h3 style={{ fontSize: 22, textTransform: "uppercase" }}>Reach us directly</h3>
+          <div className="contact-card contact-card--details">
+            <span className="contact-card__eyebrow">Contact details</span>
+            <h3>We’re here to help</h3>
+            <p className="contact-card__intro">
+              Speak with our team directly by phone, WhatsApp, or email.
+            </p>
             <div className="contact-info-list">
               <div className="contact-info-item">
                 <span className="contact-info-item__icon">
@@ -60,7 +73,9 @@ export default function Contact() {
                 </span>
                 <div>
                   <div className="label">Email</div>
-                  <div className="value"><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></div>
+                  <div className="value">
+                    <a href={emailLink()} target="_blank" rel="noopener noreferrer">{siteConfig.email}</a>
+                  </div>
                 </div>
               </div>
 
@@ -86,8 +101,12 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="contact-card">
-            <h3 style={{ fontSize: 22, textTransform: "uppercase" }}>Send an enquiry</h3>
+          <div className="contact-card contact-card--form">
+            <span className="contact-card__eyebrow">Send us a message</span>
+            <h3>How can we help?</h3>
+            <p className="contact-card__intro">
+              Share a few details and send your enquiry by WhatsApp or email.
+            </p>
             {submitted ? (
               <div className="form-success" style={{ marginTop: 20 }}>
                 Thanks — WhatsApp should have opened with your details filled in. Just hit send there and we'll reply shortly.
@@ -116,8 +135,11 @@ export default function Contact() {
                   <label htmlFor="message">Message (optional)</label>
                   <textarea id="message" name="message" value={form.message} onChange={handleChange} placeholder="Tell us what you're looking for..." />
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">Send via WhatsApp</button>
-                <p className="form-note">Submitting opens WhatsApp with your details pre-filled — nothing is stored on this site.</p>
+                <div className="contact-form__actions">
+                  <button type="submit" name="channel" value="whatsapp" className="btn btn-primary btn-block">Send via WhatsApp</button>
+                  <button type="submit" name="channel" value="email" className="btn btn-outline btn-block">Send via Email</button>
+                </div>
+                <p className="form-note">Choose WhatsApp or email to send your enquiry with the details above.</p>
               </form>
             )}
           </div>

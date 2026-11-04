@@ -1,4 +1,4 @@
-import { siteConfig, whatsappLink } from "../data/siteConfig.js";
+import { emailLink, siteConfig, whatsappLink } from "../data/siteConfig.js";
 import { stats } from "../data/content.js";
 
 const HOW_IT_WORKS = [
@@ -44,7 +44,15 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="btn btn-outline-light"
               >
-                I'm Hiring Staff →
+                Hire via WhatsApp
+              </a>
+              <a
+                href={emailLink("Staff hiring enquiry", `Hello ${siteConfig.companyName},\n\nI'm hiring staff and would like to discuss my requirements.\n\n`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline-light"
+              >
+                Hire via Email
               </a>
             </div>
 
@@ -75,14 +83,24 @@ export default function Hero() {
               ))}
             </div>
 
-            <a
-              href={whatsappLink("Hi, I want to register for a job.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero__panel-btn"
-            >
-              Register on WhatsApp →
-            </a>
+            <div className="hero__panel-actions">
+              <a
+                href={whatsappLink("Hi, I want to register for a job.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero__panel-btn"
+              >
+                Register via WhatsApp
+              </a>
+              <a
+                href={emailLink("Job registration enquiry", `Hello ${siteConfig.companyName},\n\nI want to register for a job. Please let me know the next steps.\n\n`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero__panel-btn hero__panel-btn--email"
+              >
+                Register via Email
+              </a>
+            </div>
           </div>
         </div>
       </div>

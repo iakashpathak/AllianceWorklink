@@ -2,7 +2,6 @@ import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import JobCategories from "./components/JobCategories.jsx";
 import HowItWorks from "./components/HowItWorks.jsx";
-import ForEmployers from "./components/ForEmployers.jsx";
 import ManpowerRequest from "./components/ManpowerRequest.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
 import Industries from "./components/Industries.jsx";
@@ -20,11 +19,11 @@ export default function App() {
         <JobCategories />
         <HowItWorks />
         <div className="hazard-strip" aria-hidden="true" />
-        <ForEmployers />
-        <div className="hazard-strip" aria-hidden="true" />
         <ManpowerRequest />
+        <div className="hazard-strip" aria-hidden="true" />
         <WhyChooseUs />
         <Industries />
+        <div className="hazard-strip" aria-hidden="true" />
         <Contact />
       </main>
       <Footer />

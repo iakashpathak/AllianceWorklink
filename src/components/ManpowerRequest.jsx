@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { whatsappLink } from "../data/siteConfig.js";
+import { emailLink, whatsappLink } from "../data/siteConfig.js";
 import Icon from "./Icon.jsx";
 
 const ROLE_OPTIONS = [
@@ -69,6 +69,13 @@ export default function ManpowerRequest() {
       `Work Location: ${form.location}\n` +
       `When Needed: ${form.urgency}\n` +
       `Additional Notes: ${form.notes || "—"}`;
+
+    if (e.nativeEvent.submitter?.value === "email") {
+      const body = msg.replaceAll("*", "");
+      window.open(emailLink(`Manpower request from ${form.company}`, body), "_blank", "noopener,noreferrer");
+      return;
+    }
+
     window.open(whatsappLink(msg), "_blank", "noopener,noreferrer");
     setSubmitted(true);
   }
@@ -228,14 +235,19 @@ export default function ManpowerRequest() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block mpx__submit">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.5-1.8-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
-                  </svg>
-                  Send Request via WhatsApp
-                </button>
+                <div className="contact-form__actions">
+                  <button type="submit" name="channel" value="whatsapp" className="btn btn-primary btn-block mpx__submit">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                      <path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.5-1.8-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z" />
+                    </svg>
+                    Send Request via WhatsApp
+                  </button>
+                  <button type="submit" name="channel" value="email" className="btn btn-outline btn-block mpx__submit">
+                    Send Request via Email
+                  </button>
+                </div>
                 <p className="form-note" style={{ textAlign: "center", marginTop: 10 }}>
-                  Tapping submit opens WhatsApp with your request pre-filled — nothing is stored on this site.
+                  Choose WhatsApp or email to send your request. Nothing is stored on this site.
                 </p>
               </form>
             )}

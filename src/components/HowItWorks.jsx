@@ -2,7 +2,7 @@ import { steps } from "../data/content.js";
 
 export default function HowItWorks() {
   return (
-    <section className="section section--tight" id="how-it-works" style={{ background: "var(--color-bg-alt)" }}>
+    <section className="section section--tight process" id="how-it-works">
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">The Process</span>

@@ -4,7 +4,6 @@ import { siteConfig } from "../data/siteConfig.js";
 const navLinks = [
   { label: "Job Categories", href: "#jobs" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "For Employers", href: "#employers" },
   { label: "Request Manpower", href: "#manpower" },
   { label: "Why Us", href: "#why-us" },
   { label: "Contact", href: "#contact" },

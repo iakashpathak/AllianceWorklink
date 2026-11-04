@@ -40,3 +40,6 @@ export const whatsappLink = (message) =>
   `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
     message || siteConfig.whatsappDefaultMessage
   )}`;
+
+export const emailLink = (subject = "Website Enquiry", body = "") =>
+  `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
