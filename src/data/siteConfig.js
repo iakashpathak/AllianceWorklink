@@ -31,7 +31,7 @@ export const siteConfig = {
 
   socials: {
     facebook: "https://facebook.com",
-    instagram: "https://www.instagram.com/allianceworklink2772004/",
+    instagram: "https://www.instagram.com/allianceworklink/reels/",
     linkedin: "https://linkedin.com",
   },
 };
